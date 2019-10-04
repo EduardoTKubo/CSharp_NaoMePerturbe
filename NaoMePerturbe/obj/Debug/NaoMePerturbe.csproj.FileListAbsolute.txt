@@ -1,0 +1,13 @@
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\obj\Debug\NaoMePerturbe.csprojAssemblyReference.cache
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\obj\Debug\NaoMePerturbe.frmPrincipal.resources
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\obj\Debug\NaoMePerturbe.Properties.Resources.resources
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\obj\Debug\NaoMePerturbe.csproj.GenerateResource.cache
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\obj\Debug\NaoMePerturbe.csproj.CoreCompileInputs.cache
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\bin\Debug\NaoMePerturbe.exe.config
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\bin\Debug\NaoMePerturbe.exe
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\bin\Debug\NaoMePerturbe.pdb
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\obj\Debug\NaoMePerturbe.csproj.CopyComplete
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\obj\Debug\NaoMePerturbe.exe
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\obj\Debug\NaoMePerturbe.pdb
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\bin\Debug\Renci.SshNet.dll
+C:\Ekubo\Sistemas C#\NaoMePerturbe\NaoMePerturbe\bin\Debug\Renci.SshNet.xml
