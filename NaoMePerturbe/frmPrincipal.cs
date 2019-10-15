@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using NaoMePerturbe.Classes;
 
@@ -42,6 +43,13 @@ namespace NaoMePerturbe
                     listBox1.Items.Add(Convert.ToDateTime(item["data"]).ToString("dd/MM/yyyy") + " " + item["hora"] + " | " + item["arquivo"]);
                 }
             }
+        }
+
+        private void CentralizarForm()
+        {
+            Rectangle rect = Screen.PrimaryScreen.WorkingArea;
+            this.Top = (rect.Height / 2) - (this.Height / 2);
+            this.Left = (rect.Width / 2) - (this.Width / 2);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -101,8 +109,8 @@ namespace NaoMePerturbe
             if (this.Width == 87)
             {
                 this.Text = Application.ProductName.ToString() + " ".PadLeft(110) + Application.ProductVersion;
-                this.Width = 572;
-                this.Height = 309;
+                this.Width = 581;
+                this.Height = 446;
             }
             else
             {
@@ -110,6 +118,7 @@ namespace NaoMePerturbe
                 this.Width = 87;
                 this.Height = 81;
             }
+            CentralizarForm();
         }
 
         private void dtPicker1_ValueChanged(object sender, EventArgs e)
@@ -248,5 +257,37 @@ namespace NaoMePerturbe
                 MessageBox.Show(listBox1.SelectedItem.ToString());
             }
         }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (tabControl1.SelectedIndex)
+            {
+                case 1:
+                    string sEmail = "Flavio / Cassio" + System.Environment.NewLine + System.Environment.NewLine;
+                    sEmail += "Atualizada a base de telefones bloqueados ( DoNotCall )." + System.Environment.NewLine + System.Environment.NewLine;
+                    sEmail += "Favor realizar o cruzamento x bloqueio em suas bases de trabalho." + System.Environment.NewLine + System.Environment.NewLine + System.Environment.NewLine;
+                    sEmail += " ".PadLeft(30) + "Servidor : 10.0.32.53" + System.Environment.NewLine;
+                    sEmail += " ".PadLeft(30) + "Database : procon" + System.Environment.NewLine;
+                    sEmail += " ".PadLeft(30) + "Tabela   : DoNotCall" + System.Environment.NewLine;
+
+                    txtEmail.Text = sEmail;
+
+                    txtAssunto.Text = "Atualização Diária - NÃO ME PERTURBE - ref. " + DateTime.Now.ToString("dd/MM/yyyy"); ;
+
+                    break;
+            }
+        }
+
+        private async void btnEnviarEmail_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Tem certeza ?", "Enviar email agora ?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string sEmail = await clsEmail.EnviaEmailAsync(txtAssunto.Text ,txtEmail.Text);
+                MessageBox.Show(sEmail, "email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+        }
+             
     }
 }

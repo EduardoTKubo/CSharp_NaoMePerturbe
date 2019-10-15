@@ -37,7 +37,7 @@ namespace NaoMePerturbe.Classes
                     // exportando Atu_Procon_1 da origem para o destino
                     if ( await SqlBulkAsync( dtProcon, _db, _conDestino))
                     {
-                        // executando stored procedure : sp_ZTL1_InclusaoSQL / inclusao Atu_Procon_1  em  DoNotCall
+                        // executando stored procedure : sp_InsertIntoDoNotCall / inclusao Atu_Procon_1  em  DoNotCall
                         SqlCommand sqlCom = new SqlCommand
                         {
                             Connection = sqlConDest,
@@ -48,8 +48,6 @@ namespace NaoMePerturbe.Classes
                     
                         var strResp = await sqlCom.ExecuteScalarAsync();
                         clsVariaveis.IntTotal = Convert.ToInt32(strResp.ToString());
-
-                        //clsVariaveis.IntTotal = Convert.ToInt32(sqlCom.ExecuteScalar().ToString());   // retorna a qtd incluida em contatos ,no dia ,ref inad ,regua digital e estadao.com
 
                         if (clsVariaveis.IntTotal == 0)
                         {
@@ -69,7 +67,6 @@ namespace NaoMePerturbe.Classes
                 }
                 else
                 {
-
                     clsVariaveis.GStrResult = _db + " | Atu_Procon_1 vazio - origem";
                     return false;
                 }

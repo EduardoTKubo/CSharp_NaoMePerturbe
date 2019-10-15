@@ -57,6 +57,7 @@
     <Compile Include="Classes\clsArquivo.cs" />
     <Compile Include="Classes\clsBanco.cs" />
     <Compile Include="Classes\clsDatabase.cs" />
+    <Compile Include="Classes\clsEmail.cs" />
     <Compile Include="Classes\clsExtrair.cs" />
     <Compile Include="Classes\clsFtp.cs" />
     <Compile Include="Classes\clsFuncoes.cs" />
