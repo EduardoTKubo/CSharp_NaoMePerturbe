@@ -121,25 +121,6 @@ namespace NaoMePerturbe
             CentralizarForm();
         }
 
-        private void dtPicker1_ValueChanged(object sender, EventArgs e)
-        {
-            //clsVariaveis.GDtBase = Convert.ToDateTime(dtPicker1.Value.ToString()).AddDays(-1);
-            clsVariaveis.GDtBase = Convert.ToDateTime(dtPicker1.Value.ToString());
-        }
-
-        private void btnNow_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Tem certeza ?", "Processar agora ?", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                btnNow.Enabled = false;
-
-                this.listBox1.Items.Add(DateTime.Now.ToString("dd/MM/yyyy HH:mm") + " | Inicio");
-
-                P01_Processar();
-            }
-        }
-
         private async void P01_Processar()
         {
             // verifica se ja rodou o processo do dia
@@ -182,6 +163,59 @@ namespace NaoMePerturbe
                 {
                     btnNow.Enabled = true;
                 }
+            }
+        }
+
+
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listBox1.SelectedItem != null)
+            {
+                MessageBox.Show(listBox1.SelectedItem.ToString());
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (tabControl1.SelectedIndex)
+            {
+                case 1:
+                    string sEmail = "Flavio / Cassio" + System.Environment.NewLine + System.Environment.NewLine;
+                    sEmail += "Atualizada a base de telefones bloqueados ( DoNotCall )." + System.Environment.NewLine + System.Environment.NewLine;
+                    sEmail += "Favor realizar o cruzamento x bloqueio em suas bases de trabalho." + System.Environment.NewLine + System.Environment.NewLine + System.Environment.NewLine;
+                    sEmail += " ".PadLeft(30) + "Servidor : 10.0.32.53" + System.Environment.NewLine;
+                    sEmail += " ".PadLeft(30) + "Database : procon" + System.Environment.NewLine;
+                    sEmail += " ".PadLeft(30) + "Tabela   : DoNotCall" + System.Environment.NewLine;
+
+                    txtEmail.Text = sEmail;
+
+                    txtAssunto.Text = "Atualização Diária - NÃO ME PERTURBE - ref. " + DateTime.Now.ToString("dd/MM/yyyy"); ;
+
+                    break;
+            }
+        }
+
+        private async void btnEnviarEmail_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Tem certeza ?", "Enviar email agora ?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string sEmail = await clsEmail.EnviaEmailAsync(txtAssunto.Text ,txtEmail.Text);
+                MessageBox.Show(sEmail, "email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+        }
+
+        private void btnNow_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Tem certeza ?", "Processar agora ?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                btnNow.Enabled = false;
+
+                this.listBox1.Items.Add(DateTime.Now.ToString("dd/MM/yyyy HH:mm") + " | Inicio");
+
+                P01_Processar();
             }
         }
 
@@ -234,7 +268,7 @@ namespace NaoMePerturbe
                                     this.listBox1.Items.Add(DateTime.Now.ToString("dd/MM/yyyy HH:mm") + " | DB02 | Total     : " + clsVariaveis.IntTotal);
                                 }
                                 break;
-                        }                        
+                        }
                     }
                 }
                 else
@@ -250,44 +284,10 @@ namespace NaoMePerturbe
             this.Cursor = Cursors.Default;
         }
 
-        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void dtPicker1_ValueChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItem != null)
-            {
-                MessageBox.Show(listBox1.SelectedItem.ToString());
-            }
+            //clsVariaveis.GDtBase = Convert.ToDateTime(dtPicker1.Value.ToString()).AddDays(-1);
+            clsVariaveis.GDtBase = Convert.ToDateTime(dtPicker1.Value.ToString());
         }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (tabControl1.SelectedIndex)
-            {
-                case 1:
-                    string sEmail = "Flavio / Cassio" + System.Environment.NewLine + System.Environment.NewLine;
-                    sEmail += "Atualizada a base de telefones bloqueados ( DoNotCall )." + System.Environment.NewLine + System.Environment.NewLine;
-                    sEmail += "Favor realizar o cruzamento x bloqueio em suas bases de trabalho." + System.Environment.NewLine + System.Environment.NewLine + System.Environment.NewLine;
-                    sEmail += " ".PadLeft(30) + "Servidor : 10.0.32.53" + System.Environment.NewLine;
-                    sEmail += " ".PadLeft(30) + "Database : procon" + System.Environment.NewLine;
-                    sEmail += " ".PadLeft(30) + "Tabela   : DoNotCall" + System.Environment.NewLine;
-
-                    txtEmail.Text = sEmail;
-
-                    txtAssunto.Text = "Atualização Diária - NÃO ME PERTURBE - ref. " + DateTime.Now.ToString("dd/MM/yyyy"); ;
-
-                    break;
-            }
-        }
-
-        private async void btnEnviarEmail_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Tem certeza ?", "Enviar email agora ?", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                string sEmail = await clsEmail.EnviaEmailAsync(txtAssunto.Text ,txtEmail.Text);
-                MessageBox.Show(sEmail, "email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            }
-        }
-             
     }
 }

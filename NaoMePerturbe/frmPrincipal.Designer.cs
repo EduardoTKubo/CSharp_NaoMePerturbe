@@ -37,16 +37,16 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnEnviarEmail = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtAssunto = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnNow = new System.Windows.Forms.Button();
             this.dtPicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnEnviarEmail = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -114,6 +114,43 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "email";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Padrão";
+            // 
+            // btnEnviarEmail
+            // 
+            this.btnEnviarEmail.Location = new System.Drawing.Point(388, 232);
+            this.btnEnviarEmail.Name = "btnEnviarEmail";
+            this.btnEnviarEmail.Size = new System.Drawing.Size(141, 28);
+            this.btnEnviarEmail.TabIndex = 4;
+            this.btnEnviarEmail.Text = "Enviar email";
+            this.btnEnviarEmail.UseVisualStyleBackColor = true;
+            this.btnEnviarEmail.Click += new System.EventHandler(this.btnEnviarEmail_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Msg";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Assunto";
+            // 
             // txtAssunto
             // 
             this.txtAssunto.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -151,6 +188,7 @@
             this.btnCopy.TabIndex = 10;
             this.btnCopy.Text = "Copiar para outros DBs";
             this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // btnNow
             // 
@@ -160,6 +198,7 @@
             this.btnNow.TabIndex = 9;
             this.btnNow.Text = "Importar agora !";
             this.btnNow.UseVisualStyleBackColor = true;
+            this.btnNow.Click += new System.EventHandler(this.btnNow_Click);
             // 
             // dtPicker1
             // 
@@ -169,43 +208,7 @@
             this.dtPicker1.Size = new System.Drawing.Size(98, 20);
             this.dtPicker1.TabIndex = 7;
             this.dtPicker1.Value = new System.DateTime(2019, 7, 22, 11, 46, 39, 0);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Assunto";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Msg";
-            // 
-            // btnEnviarEmail
-            // 
-            this.btnEnviarEmail.Location = new System.Drawing.Point(388, 232);
-            this.btnEnviarEmail.Name = "btnEnviarEmail";
-            this.btnEnviarEmail.Size = new System.Drawing.Size(141, 28);
-            this.btnEnviarEmail.TabIndex = 4;
-            this.btnEnviarEmail.Text = "Enviar email";
-            this.btnEnviarEmail.UseVisualStyleBackColor = true;
-            this.btnEnviarEmail.Click += new System.EventHandler(this.btnEnviarEmail_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 45);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Padrão";
+            this.dtPicker1.ValueChanged += new System.EventHandler(this.dtPicker1_ValueChanged);
             // 
             // frmPrincipal
             // 
